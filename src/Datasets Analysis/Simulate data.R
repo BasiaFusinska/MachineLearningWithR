@@ -13,11 +13,11 @@ classificationSample <- function(features=2, n=100){
   data <- data.frame(data)
   names(data) <- data.names
   
-  data$labels <- factor(ifelse(data$f1 + data$f2 < 0, 1, 2))
+  data$labels <- factor(ifelse(data$f1 + data$f2 < 0, 'A', 'B'))
   
   # Introduce some variation
   idxs <- sample(1:100, 10)
-  data$labels[idxs] <- ifelse(data$labels[idxs] == 1, 2, 1)
+  data$labels[idxs] <- ifelse(data$labels[idxs] == 1, 'B', 'A')
   
   return(data)
 }
