@@ -1,23 +1,22 @@
 library(caret)
 
 # Standarise data
-stand.par <- preProcess(myData[,1:2])
+stand.par <- preProcess(data.class[,1:2])
 # Same as:
-# stand.par <- preProcess(myData[,1:2], method=c("center", "scale"))
+# stand.par <- preProcess(data.class[,1:2], method=c("center", "scale"))
 
-data.stand <- predict(stand.par, myData[,1:2])
+data.stand <- predict(stand.par, data.class[,1:2])
 summary(data.stand)
 
 # Normalise data
-norm.par <- preProcess(myData[,1:2], method=c("range"))
-data.norm <- predict(norm.par, myData[,1:2])
+norm.par <- preProcess(data.class[,1:2], method=c("range"))
+data.norm <- predict(norm.par, data.class[,1:2])
 summary(data.norm)
 
 # Dimentionality reduction
-fiveDimData <- classificationSample(5)
-summary(fiveDimData)
+five.dim <- classificationSample(5)
+summary(five.dim)
 
-pca.par <- preProcess(fiveDimData[,1:5], method=c("pca"), pcaComp = 2)
-data.pca <- predict(pca.par, fiveDimData[,1:5])
+pca.par <- preProcess(five.dim[,1:5], method=c("pca"), pcaComp = 2)
+data.pca <- predict(pca.par, five.dim[,1:5])
 summary(data.pca)
-
