@@ -10,6 +10,10 @@ tc.cv <- trainControl(method="cv")
 cv.fit <- train(labels~., data=data.class, trControl=tc.cv, method="knn")
 cv.fit
 
+# training for regression
+cv.fit <- train(y~., data=data.reg, trControl=tc.cv, method="lm")
+cv.fit
+
 # Repeated k-fold cross validation
 # Changing the metric from default Accuracy to ROC
 tc.rcv <- trainControl(method="repeatedcv", repeats=3, classProbs = TRUE, summaryFunction = twoClassSummary)
