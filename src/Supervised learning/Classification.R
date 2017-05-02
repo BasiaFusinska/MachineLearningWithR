@@ -3,10 +3,10 @@ library(e1071)
 
 # Split data to train & test
 
-data.partition <- createDataPartition(myData$labels, p=.75, list=FALSE)
+data.partition <- createDataPartition(data.class$labels, p=.75, list=FALSE)
 
-data.train <- myData[data.partition,]
-data.test <- myData[-data.partition,]
+data.train <- data.class[data.partition,]
+data.test <- data.class[-data.partition,]
 
 # Train classficator
 
