@@ -22,3 +22,31 @@ classificationSample <- function(features=2, n=100){
   
   return(data)
 }
+
+# Generations of data for the regression problem
+regressionSample <- function(features=2, n=100){
+  data <- NULL
+  data.names <- NULL
+  a <- 0.5
+  
+  # Generate data, normal distribution
+  for(i in 1:(features-1)){
+    fname <- paste("x", i, sep = '')
+    data.names <- c(data.names, fname)
+    
+    data <- cbind(data, runif(n, 0, 10))
+  }
+  data.names <- c(data.names, 'y')
+  
+  y <- runif(n, -2, 2)
+  
+  for(i in 1:(features-1)){
+    y <- y + a * data[,i]
+  }
+  
+  data <- cbind(data, y)
+  data <- data.frame(data)
+  names(data) <- data.names
+  
+  return(data)
+}
