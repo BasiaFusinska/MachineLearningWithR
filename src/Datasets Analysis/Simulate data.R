@@ -50,3 +50,29 @@ regressionSample <- function(features=2, n=100){
   
   return(data)
 }
+
+# Generations of data for the regression problem
+clusteringSample <- function(features=2, n=120, k=3){
+  data <- NULL
+  data.names <- NULL
+
+  div <- 20/(k+1)
+  c.values <- NULL
+  for(i in 1:k){
+    c.values <- c(c.values, -10 + i*div)
+  }
+  
+  centers <- c.values[sample(1:k, n, replace=TRUE)]
+  
+  for(i in 1:features){
+    fname <- paste("x", i, sep = '')
+    data.names <- c(data.names, fname)
+    
+    data <- cbind(data, rnorm(n, centers, 1.5))
+  }
+  
+  data <- data.frame(data)
+  names(data) <- data.names
+
+  return(data)
+}
