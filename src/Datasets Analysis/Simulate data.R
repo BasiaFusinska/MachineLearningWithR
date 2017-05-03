@@ -62,17 +62,20 @@ clusteringSample <- function(features=2, n=120, k=3){
     c.values <- c(c.values, -10 + i*div)
   }
   
-  centers <- c.values[sample(1:k, n, replace=TRUE)]
+  c.label <- sample(1:k, n, replace=TRUE)
+  c.cen <- c.values[c.label]
   
   for(i in 1:features){
     fname <- paste("x", i, sep = '')
     data.names <- c(data.names, fname)
     
-    data <- cbind(data, rnorm(n, centers, 1.5))
+    data <- cbind(data, rnorm(n, c.cen, 2))
   }
   
   data <- data.frame(data)
   names(data) <- data.names
+  
+  data$c.label <- factor(c.label)
 
   return(data)
 }

@@ -7,6 +7,7 @@ names(data.clu)
 
 class(data.clu$x1)
 class(data.clu$x2)
+class(data.clu$c.label)
 
 summary(data.clu)
 
