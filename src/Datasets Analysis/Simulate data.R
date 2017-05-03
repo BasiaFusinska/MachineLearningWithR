@@ -75,7 +75,7 @@ clusteringSample <- function(features=2, n=120, k=3){
   data <- data.frame(data)
   names(data) <- data.names
   
-  data$c.label <- factor(c.label)
+  data$c.label <- factor(c.label, labels=toupper(letters[1:k]))
 
   return(data)
 }

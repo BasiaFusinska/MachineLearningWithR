@@ -24,6 +24,8 @@ ggplot(data.test, aes(x1, y)) + geom_point() +
 par(mfrow=c(2,2))
 plot(lm.model)
 
+par(mfrow=c(1,1))
+
 # Predictions for the training and test data
 pred.train <- predict(lm.model, data.train)
 pred.test <- predict(lm.model, data.test)
