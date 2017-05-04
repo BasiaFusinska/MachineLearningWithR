@@ -19,7 +19,7 @@ nb.fit <- naiveBayes(labels~., data=data.train)
 nb.fit
 
 # Logistic Regression
-lr.fit <- glm(labels~., family=binomial(), data=data.train)
+lr.fit <- glm(labels~., family="binomial", data=data.train)
 lr.fit
 
 # Predictions for the training and test data
