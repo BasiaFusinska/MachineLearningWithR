@@ -8,7 +8,7 @@ kmeans.fit$size
 clu.cen <- data.frame(kmeans.fit$centers)
 clu.col <- factor(kmeans.fit$cluster)
 
-# Plot clusters agains original data generation
+# Plot clusters against original data generation
 ggplot(data.clu, aes(x1, x2)) + geom_point(aes(col=clu.col)) +
   geom_point(data=clu.cen)
 
