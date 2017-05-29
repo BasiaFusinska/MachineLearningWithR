@@ -9,6 +9,6 @@ tune.fit <- train(labels~., data=data.class, trControl=tc.cv, method="knn", tune
 tune.fit
 
 # tune by values
-values <- data.frame(k=c(11, 12, 18))
+values <- data.frame(k=c(11, 17, 23))
 tune.fit <- train(labels~., data=data.class, trControl=tc.cv, method="knn", tuneGrid=values)
 tune.fit

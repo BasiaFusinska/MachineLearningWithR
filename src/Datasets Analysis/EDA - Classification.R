@@ -9,6 +9,8 @@ class(data.class$labels)
 class(data.class$x1)
 class(data.class$x2)
 
+head(data.class)
+
 summary(data.class)
 
 # Visualise the data
